@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -74,16 +75,30 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#   'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#} 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'inmobiliaria_d2o2',
+        'USER': 'inmobiliaria_d2o2_user',
+        'PASSWORD': 'PZdrAuJAuZB1iVmAovEIzeGoZsTA2TQn',
+        'HOST': 'dpg-cs7h702j1k6c73fgk4a0-a.oregon-postgres.render.com', 
+        'PORT': '5432',  
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
+
+AUTH_USER_MODEL = 'app.CustomUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

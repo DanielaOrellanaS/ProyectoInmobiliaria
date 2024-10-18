@@ -24,7 +24,7 @@ class AuthViewSet(viewsets.ViewSet):
         if serializer.is_valid():
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
-            user = authenticate(email=email, password=password)
+            user = authenticate(request, email=email, password=password)
             if user:
                 token, created = Token.objects.get_or_create(user=user)
                 return Response({'token': token.key}, status=status.HTTP_200_OK)

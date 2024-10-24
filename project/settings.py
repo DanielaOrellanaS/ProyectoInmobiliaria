@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CORS_ALLOWED_ORIGINS = ['https://frontend-smoky-seven-48.vercel.app']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 

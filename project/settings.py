@@ -94,11 +94,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inmobiliaria_d2o2',
-        'USER': 'inmobiliaria_d2o2_user',
-        'PASSWORD': 'PZdrAuJAuZB1iVmAovEIzeGoZsTA2TQn',
-        'HOST': 'dpg-cs7h702j1k6c73fgk4a0-a.oregon-postgres.render.com', 
-        'PORT': '5432',  
+        'NAME': 'inmobiliaria_pj1i',
+        'USER': 'inmobiliaria_pj1i_user',
+        'PASSWORD': 'lFt5QP2SmHTxXnI51yYk2Eabip9YgLCr',
+        'HOST': 'dpg-csdped5svqrc73930nbg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 

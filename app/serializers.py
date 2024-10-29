@@ -20,10 +20,10 @@ class AsesorComercialSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
-        password = user_data.pop('password')  # Extrae la contraseña
+        password = user_data.pop('password')  
         user = User.objects.create_user(**user_data)
-        user.set_password(password)  # Establece la contraseña
-        user.is_asesor = True  # Marca al usuario como asesor
+        user.set_password(password)  
+        user.is_asesor = True  
         user.save()
         asesor = AsesorComercial.objects.create(user=user, **validated_data)
         return asesor
@@ -34,14 +34,14 @@ class ConstructoraInmobiliariaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ConstructoraInmobiliaria
-        fields = ('user', 'nombre', 'tiempo_constitucion', 'representante_legal', 'direccion')
+        fields = ('user', 'tiempo_constitucion', 'representante_legal', 'direccion')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
-        password = user_data.pop('password')  # Extrae la contraseña
+        password = user_data.pop('password')  
         user = User.objects.create_user(**user_data)
-        user.set_password(password)  # Establece la contraseña
-        user.is_constructora = True  # Marca al usuario como constructora
+        user.set_password(password)  
+        user.is_constructora = True  
         user.save()
         constructora = ConstructoraInmobiliaria.objects.create(user=user, **validated_data)
         return constructora

@@ -57,7 +57,6 @@ class AsesorComercial(models.Model):
 
 class ConstructoraInmobiliaria(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="constructora_inmobiliaria")
-    nombre = models.CharField(max_length=255)
     tiempo_constitucion = models.PositiveIntegerField(help_text="Años de constitución")
     representante_legal = models.CharField(max_length=255)
     direccion = models.CharField(max_length=255)

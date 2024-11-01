@@ -16,7 +16,7 @@ class CommercialAdvisorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CommercialAdvisor
-        fields = ('user', 'photo', 'biography', 'skills', 'reviews', 'num_sales')
+        fields = ('user', 'biography', 'skills', 'reviews', 'num_sales')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')

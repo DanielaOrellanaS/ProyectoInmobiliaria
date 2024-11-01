@@ -46,7 +46,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class CommercialAdvisor(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="commercial_advisor")
-    photo = models.ImageField(upload_to='photos_advisors/', null=True, blank=True)
     biography = models.TextField(blank=True, null=True)
     skills = models.TextField(blank=True, null=True)
     reviews = models.TextField(blank=True, null=True)

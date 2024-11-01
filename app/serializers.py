@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import AsesorComercial, ConstructoraInmobiliaria
+from .models import CommercialAdvisor, BuilderCompany
 
 User = get_user_model()
 
@@ -11,12 +11,12 @@ class CustomUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'email', 'name', 'identification', 'password')
 
-class AsesorComercialSerializer(serializers.ModelSerializer):
+class CommercialAdvisorSerializer(serializers.ModelSerializer):
     user = CustomUserSerializer()
 
     class Meta:
-        model = AsesorComercial
-        fields = ('user', 'foto', 'biografia', 'skills', 'reseñas', 'numero_ventas')
+        model = CommercialAdvisor
+        fields = ('user', 'photo', 'biography', 'skills', 'reviews', 'num_sales')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
@@ -25,16 +25,15 @@ class AsesorComercialSerializer(serializers.ModelSerializer):
         user.set_password(password)  
         user.is_asesor = True  
         user.save()
-        asesor = AsesorComercial.objects.create(user=user, **validated_data)
+        asesor = CommercialAdvisor.objects.create(user=user, **validated_data)
         return asesor
 
-
-class ConstructoraInmobiliariaSerializer(serializers.ModelSerializer):
+class BuilderCompanySerializer(serializers.ModelSerializer):
     user = CustomUserSerializer()
 
     class Meta:
-        model = ConstructoraInmobiliaria
-        fields = ('user', 'tiempo_constitucion', 'representante_legal', 'direccion')
+        model = BuilderCompany
+        fields = ('user', 'incorporation_time', 'legal_representative', 'address')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
@@ -43,7 +42,7 @@ class ConstructoraInmobiliariaSerializer(serializers.ModelSerializer):
         user.set_password(password)  
         user.is_constructora = True  
         user.save()
-        constructora = ConstructoraInmobiliaria.objects.create(user=user, **validated_data)
+        constructora = BuilderCompany.objects.create(user=user, **validated_data)
         return constructora
 
 class LoginSerializer(serializers.Serializer):

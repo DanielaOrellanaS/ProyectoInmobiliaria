@@ -44,22 +44,22 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-class AsesorComercial(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="asesor_comercial")
-    foto = models.ImageField(upload_to='asesores_fotos/', null=True, blank=True)
-    biografia = models.TextField(blank=True, null=True)
+class CommercialAdvisor(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="commercial_advisor")
+    photo = models.ImageField(upload_to='photos_advisors/', null=True, blank=True)
+    biography = models.TextField(blank=True, null=True)
     skills = models.TextField(blank=True, null=True)
-    reseñas = models.TextField(blank=True, null=True)
-    numero_ventas = models.PositiveIntegerField(default=0)
+    reviews = models.TextField(blank=True, null=True)
+    num_sales = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.user.name
 
-class ConstructoraInmobiliaria(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="constructora_inmobiliaria")
-    tiempo_constitucion = models.PositiveIntegerField(help_text="Años de constitución")
-    representante_legal = models.CharField(max_length=255)
-    direccion = models.CharField(max_length=255)
+class BuilderCompany(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name="builder_company")
+    incorporation_time = models.PositiveIntegerField(help_text="Años de constitución")
+    legal_representative = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.nombre
+        return self.user.name

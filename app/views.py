@@ -3,17 +3,17 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework.authtoken.models import Token
-from .models import AsesorComercial, ConstructoraInmobiliaria
-from .serializers import ( AsesorComercialSerializer, ConstructoraInmobiliariaSerializer, LoginSerializer )
+from .models import CommercialAdvisor, BuilderCompany
+from .serializers import ( CommercialAdvisorSerializer, BuilderCompanySerializer, LoginSerializer )
 
-class AsesorComercialViewSet(viewsets.ModelViewSet):
-    queryset = AsesorComercial.objects.all()
-    serializer_class = AsesorComercialSerializer
+class CommercialAdvisorViewSet(viewsets.ModelViewSet):
+    queryset = CommercialAdvisor.objects.all()
+    serializer_class = CommercialAdvisorSerializer
     permission_classes = [AllowAny]
 
-class ConstructoraInmobiliariaViewSet(viewsets.ModelViewSet):
-    queryset = ConstructoraInmobiliaria.objects.all()
-    serializer_class = ConstructoraInmobiliariaSerializer
+class BuilderCompanyViewSet(viewsets.ModelViewSet):
+    queryset = BuilderCompany.objects.all()
+    serializer_class = BuilderCompanySerializer
     permission_classes = [AllowAny]
 
 class AuthViewSet(viewsets.ViewSet):
